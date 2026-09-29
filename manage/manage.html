@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mes images — WikiMasters</title>
+  <link rel="stylesheet" href="manage.css">
+</head>
+<body>
+  <main class="page">
+    <header class="head">
+      <div>
+        <p class="eyebrow">Images perso WikiMasters</p>
+        <h1>Mes images</h1>
+        <p id="summary" class="lead">…</p>
+      </div>
+      <a class="btn" href="../backup/backup.html">Sauvegarde / transfert</a>
+    </header>
+
+    <div id="toolbar" class="toolbar" hidden>
+      <input id="search" type="search" placeholder="Rechercher par nom ou catégorie…" autocomplete="off" aria-label="Rechercher">
+      <div class="filters" role="group" aria-label="Filtrer par mode">
+        <button type="button" class="chip" data-filter="all" aria-pressed="true">Toutes</button>
+        <button type="button" class="chip" data-filter="always" aria-pressed="false">Toujours</button>
+        <button type="button" class="chip" data-filter="missing" aria-pressed="false">Si manquante</button>
+      </div>
+      <select id="sort" aria-label="Trier">
+        <option value="recent">Plus récentes</option>
+        <option value="name">Nom (A → Z)</option>
+      </select>
+    </div>
+
+    <p id="empty" class="empty" hidden></p>
+    <ul id="grid" class="grid"></ul>
+    <footer class="credit">Extension créée par <a href="https://github.com/clepix21" target="_blank" rel="noopener noreferrer">clepix21</a></footer>
+  </main>
+
+  <script src="../src/storage.js"></script>
+  <script src="manage.js"></script>
+</body>
+</html>

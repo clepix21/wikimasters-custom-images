@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "WikiMasters — Images perso",
+  "version": "1.2.2",
+  "description": "Remplace les images des cartes WikiMasters par tes propres images, carte par carte. Créée par clepix21.",
+  "homepage_url": "https://github.com/clepix21",
+  "permissions": ["storage", "unlimitedStorage"],
+  "host_permissions": ["https://www.wiki-masters.com/*", "https://wiki-masters.com/*"],
+  "optional_host_permissions": ["https://*/*", "http://*/*"],
+  "options_page": "manage/manage.html",
+  "action": {
+    "default_title": "Images perso WikiMasters",
+    "default_popup": "popup/popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.wiki-masters.com/*", "https://wiki-masters.com/*"],
+      "js": ["src/page-hook.js"],
+      "run_at": "document_start",
+      "world": "MAIN"
+    },
+    {
+      "matches": ["https://www.wiki-masters.com/*", "https://wiki-masters.com/*"],
+      "js": ["src/storage.js", "src/content.js"],
+      "run_at": "document_start"
+    }
+  ]
+}

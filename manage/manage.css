@@ -1,0 +1,145 @@
+:root {
+  --bg: #111312;
+  --surface: #1a1d1c;
+  --surface-2: #232826;
+  --border: #2c322f;
+  --text: #e8ece9;
+  --muted: #8a938e;
+  --accent: #34d399;
+  --accent-ink: #062b1d;
+  --danger: #f87171;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  font: 14px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+button, input, select { font: inherit; color: inherit; }
+
+.page { max-width: 1100px; margin: 0 auto; padding: 32px 16px 48px; }
+
+.head { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px; }
+.eyebrow { margin: 0; color: var(--accent); font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; }
+h1 { margin: 2px 0 0; font-size: 26px; }
+.lead { margin: 4px 0 0; color: var(--muted); }
+
+.toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+  padding: 12px 0;
+  background: var(--bg);
+}
+.toolbar[hidden] { display: none; }
+
+#search {
+  flex: 1 1 260px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  outline: none;
+}
+#search:focus { border-color: var(--accent); }
+
+select {
+  padding: 7px 10px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.filters { display: flex; gap: 6px; }
+.chip {
+  padding: 5px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+}
+.chip[aria-pressed="true"] { background: var(--surface-2); color: var(--text); border-color: var(--muted); }
+
+.grid {
+  list-style: none;
+  margin: 8px 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 16px;
+}
+
+.tile {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--surface);
+  overflow: hidden;
+}
+
+.tile-image {
+  aspect-ratio: 576 / 372;
+  background: var(--surface-2);
+}
+.tile-image img { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+.tile-body { display: grid; gap: 6px; padding: 10px 12px 12px; }
+.tile-title { margin: 0; font-size: 14px; font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.tile-category { margin: 0; color: var(--muted); font-size: 12px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-height: 1.5em; }
+.tile-meta { margin: 0; color: var(--muted); font-size: 11px; }
+
+.tile-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin-top: 4px; }
+
+.btn {
+  display: inline-block;
+  padding: 5px 11px;
+  border-radius: 7px;
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  color: var(--text);
+  text-decoration: none;
+  cursor: pointer;
+}
+.btn:hover { border-color: var(--muted); }
+.btn.danger { color: var(--danger); }
+.btn.danger.is-armed { background: var(--danger); border-color: var(--danger); color: #2a0a0a; }
+
+.segmented { display: inline-flex; border: 1px solid var(--border); border-radius: 7px; overflow: hidden; }
+.segmented button { padding: 4px 9px; border: 0; background: transparent; color: var(--muted); cursor: pointer; font-size: 12px; }
+.segmented button + button { border-left: 1px solid var(--border); }
+.segmented button[aria-pressed="true"] { background: var(--surface-2); color: var(--text); }
+
+.empty {
+  margin: 32px 0 0;
+  padding: 32px 16px;
+  border: 1px dashed var(--border);
+  border-radius: 12px;
+  color: var(--muted);
+  text-align: center;
+}
+
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.credit {
+  margin-top: 40px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 12px;
+  text-align: center;
+}
+.credit a { color: var(--accent); font-weight: 600; text-decoration: none; }
+.credit a:hover { text-decoration: underline; }

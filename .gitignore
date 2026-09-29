@@ -1,0 +1,11 @@
+# macOS
+.DS_Store
+
+# Packaged builds and backups exported from the extension
+*.zip
+*.crx
+*.pem
+wikimasters-images-*.json
+
+# Tooling
+node_modules/

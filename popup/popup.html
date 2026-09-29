@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Images perso WikiMasters</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="head">
+    <div class="head-row">
+      <h1>Images perso</h1>
+      <button id="open-manage" type="button" class="link">Mes images</button>
+    </div>
+    <p id="summary" class="summary"></p>
+  </header>
+
+  <p id="notice" class="notice" role="status" hidden></p>
+
+  <div id="toolbar" class="toolbar" hidden>
+    <input id="search" type="search" placeholder="Filtrer par nom…" autocomplete="off" aria-label="Filtrer par nom">
+    <div class="filters" role="group" aria-label="Filtre">
+      <button type="button" class="chip" data-filter="all" aria-pressed="true">Toutes</button>
+      <button type="button" class="chip" data-filter="missing" aria-pressed="false">Sans image</button>
+      <button type="button" class="chip" data-filter="custom" aria-pressed="false">Modifiées</button>
+    </div>
+  </div>
+
+  <ul id="cards" class="cards"></ul>
+
+  <footer class="credit">Extension créée par <a href="https://github.com/clepix21" target="_blank" rel="noopener noreferrer">clepix21</a></footer>
+
+  <script src="../src/storage.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

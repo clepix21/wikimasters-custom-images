@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Image perso — WikiMasters</title>
+  <link rel="stylesheet" href="editor.css">
+</head>
+<body>
+  <main class="page">
+    <header class="head">
+      <p class="eyebrow">Image perso</p>
+      <h1 id="card-title">…</h1>
+      <p id="card-category" class="category"></p>
+    </header>
+
+    <p id="error" class="error" role="alert" hidden></p>
+
+    <section id="picker" class="picker">
+      <label id="dropzone" class="dropzone">
+        <input id="file" type="file" accept="image/*">
+        <span class="dropzone-title">Choisis une image</span>
+        <span class="dropzone-hint">ou glisse-la ici, depuis un dossier ou un autre onglet</span>
+      </label>
+
+      <form id="url-form" class="url-form">
+        <input id="url-input" type="url" placeholder="…ou l'adresse d'une image : https://…" aria-label="Adresse d'une image" required>
+        <button id="url-submit" type="submit" class="btn">Charger</button>
+      </form>
+      <button id="grant" type="button" class="btn grant" hidden></button>
+
+      <p class="hint">Astuce : <kbd>Ctrl</kbd>/<kbd>⌘</kbd> + <kbd>V</kbd> colle une image copiée ou une adresse d'image, n'importe où sur cette page.</p>
+      <button id="back-to-crop" type="button" class="btn" hidden>← Revenir au cadrage</button>
+    </section>
+
+    <section id="workspace" class="workspace" hidden>
+      <div class="crop-col">
+        <div id="viewport" class="viewport" aria-label="Zone de rognage : fais glisser pour déplacer, molette pour zoomer">
+          <canvas id="crop-canvas"></canvas>
+        </div>
+        <div class="zoom-row">
+          <label for="zoom">Zoom</label>
+          <input id="zoom" type="range" min="1" max="8" step="0.01" value="1">
+          <button id="change-file" type="button" class="btn">Autre image…</button>
+        </div>
+        <p class="hint">Fais glisser l'image pour la cadrer, et zoome avec la molette ou le curseur.</p>
+      </div>
+
+      <aside class="side">
+        <h2>Aperçu</h2>
+        <div class="previews">
+          <figure>
+            <canvas id="preview-grid" class="preview" width="160" height="101"></canvas>
+            <figcaption>Grille</figcaption>
+          </figure>
+          <figure>
+            <canvas id="preview-modal" class="preview" width="288" height="189"></canvas>
+            <figcaption>Détail</figcaption>
+          </figure>
+        </div>
+
+        <fieldset class="modes">
+          <legend>Remplacer l'image</legend>
+          <label><input type="radio" name="mode" value="always"> Toujours</label>
+          <label><input type="radio" name="mode" value="missing"> Seulement si l'image manque</label>
+        </fieldset>
+
+        <button id="save" type="button" class="btn primary">Enregistrer</button>
+        <p id="status" class="status" role="status"></p>
+      </aside>
+    </section>
+  </main>
+
+  <script src="../src/storage.js"></script>
+  <script src="editor.js"></script>
+</body>
+</html>

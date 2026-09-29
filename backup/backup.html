@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sauvegarde — Images perso WikiMasters</title>
+  <link rel="stylesheet" href="backup.css">
+</head>
+<body>
+  <main class="page">
+    <header class="head">
+      <a class="back" href="../manage/manage.html">← Mes images</a>
+      <p class="eyebrow">Images perso WikiMasters</p>
+      <h1>Sauvegarde et transfert</h1>
+      <p class="lead">Exporte tes images dans un fichier, puis importe-le sur un autre PC.</p>
+    </header>
+
+    <section class="panel">
+      <h2>Exporter</h2>
+      <p id="export-summary" class="muted">…</p>
+      <button id="export" type="button" class="btn primary">Télécharger la sauvegarde</button>
+      <p id="export-status" class="status" role="status"></p>
+    </section>
+
+    <section class="panel">
+      <h2>Importer</h2>
+      <label class="file-btn">
+        <input id="import-file" type="file" accept=".json,application/json">
+        <span>Choisir un fichier de sauvegarde…</span>
+      </label>
+      <p id="import-error" class="error" role="alert" hidden></p>
+
+      <div id="import-plan" hidden>
+        <ul id="import-summary" class="summary"></ul>
+
+        <fieldset class="strategies">
+          <legend>Si une carte a déjà une image sur ce PC</legend>
+          <label>
+            <input type="radio" name="strategy" value="overwrite" checked>
+            <span><strong>Fusionner en écrasant</strong> : l'image du fichier remplace celle de ce PC.</span>
+          </label>
+          <label>
+            <input type="radio" name="strategy" value="keep">
+            <span><strong>Fusionner sans écraser</strong> : l'image de ce PC est conservée.</span>
+          </label>
+          <label>
+            <input type="radio" name="strategy" value="replace">
+            <span><strong>Tout remplacer</strong> : ce PC devient identique au fichier.</span>
+          </label>
+        </fieldset>
+
+        <p id="import-consequence" class="consequence"></p>
+        <button id="import" type="button" class="btn primary">Importer</button>
+      </div>
+      <p id="import-status" class="status" role="status"></p>
+    </section>
+    <footer class="credit">Extension créée par <a href="https://github.com/clepix21" target="_blank" rel="noopener noreferrer">clepix21</a></footer>
+  </main>
+
+  <script src="../src/storage.js"></script>
+  <script src="backup.js"></script>
+</body>
+</html>
